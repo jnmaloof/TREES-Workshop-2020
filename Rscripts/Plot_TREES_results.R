@@ -5,7 +5,7 @@
 ####################################
 ## set your working directory and load functions
 ####################################
-setwd(paste("~/Downloads/TREES-workshop-2020-main/",sep=""))
+setwd("~/git/TREES-Workshop-2020/")
 source("Rscripts/plotFunctions.R")
 
 #
