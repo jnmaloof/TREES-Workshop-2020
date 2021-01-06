@@ -15,7 +15,7 @@
 ##################################Load required packages#######################################################
 # List of required packages
 pkgli<-c("crayon","dplyr","tidyr","readr","readxl","withr","ggplot2","ggthemes",
-         "extrafont","parallel","foreach","doParallel","plotly","scales","Cairo")
+         "extrafont","parallel","foreach","doParallel","plotly","scales")#,"Cairo")
 ## Some of these may not be required at all times so if you have a compatibility issue
 ## try removing the problematic package from here.
 ## For example plotly and htmlwidgets have issues on CCR and are not necessary for current
@@ -86,9 +86,10 @@ Leaf_Area_Plot<-function(Result_Dest=paste(getwd(),"/easyR_TREES/Outputs",sep=""
     
     p<-ggplot()+
       theme_minimal()+
-      theme(text=element_text(size=10,  family="DejaVu serif"),
-            legend.text =element_text(size=8,  family="DejaVu serif"),
-            legend.title =element_text(size=8,  family="DejaVu serif") )+
+      theme(text=element_text(size=10),
+            legend.text =element_text(size=8),
+            legend.title =element_text(size=8) )+
+
       scale_color_colorblind(labels = c('TREES', 'Experimental'))+
       labs(title = Figure_title,
            y=expression(paste("Leaf Area ("~cm^2~")" )),
@@ -121,8 +122,9 @@ Leaf_Area_Plot<-function(Result_Dest=paste(getwd(),"/easyR_TREES/Outputs",sep=""
     
     
     
-    ggsave(path=paste(Result_Dest,"/Figures",sep=""),filename=paste(i,Figure_title,".pdf",sep=""),plot=p,device=cairo_pdf,height=12,width=20,units = "cm")
+    #ggsave(path=paste(Result_Dest,"/Figures",sep=""),filename=paste(i,Figure_title,".pdf",sep=""),plot=p,device=cairo_pdf,height=12,width=20,units = "cm")
     
+    ggsave(path=paste(Result_Dest,"/Figures",sep=""),filename=paste(i,Figure_title,".pdf",sep=""),plot=p,height=12,width=20,units = "cm")
     
   }
   
@@ -311,9 +313,9 @@ Sim_Plot<-function(Result_Dest=paste(getwd(),"/easyR_TREES/Outputs",sep=""),#Whe
     
     p<-ggplot()+
       theme_minimal()+
-      theme(text=element_text(size=10,  family="DejaVu serif"),
-            legend.text =element_text(size=8,  family="DejaVu serif"),
-            legend.title =element_text(size=8,  family="DejaVu serif") )+
+      theme(text=element_text(size=10),
+            legend.text =element_text(size=8),
+            legend.title =element_text(size=8) )+
       scale_color_colorblind(labels = c('TREES', 'Experimental'))+
       labs(title = Figure_title,
            y=Var_unit(Which_Sim = Which_Sim),
@@ -348,7 +350,9 @@ Sim_Plot<-function(Result_Dest=paste(getwd(),"/easyR_TREES/Outputs",sep=""),#Whe
     
     ggsave(path=paste(Result_Dest,"/Figures",sep=""),
            filename=paste(i,Figure_title,".pdf",sep=""),
-           plot=p,device=cairo_pdf,height=12,width=20,units = "cm")
+           plot=p,
+           #device=cairo_pdf,
+           height=12,width=20,units = "cm")
     
     
   }

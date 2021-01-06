@@ -51,7 +51,7 @@ Run_easyR_TREES(Result_Dest="easyR_TREES/Outputs",#Your destination for TREES ou
                 Init_Infile="Examples/Brassica/in_cc_ww.txt",#Name and location of initial infile to be modified.
                 param_mod = "Examples/Brassica/param_mod",#Name and location of param_mod file.
                 covfile="Examples/Brassica/covfile1",#Name and location of covfile.
-                N_cores=6,#Number of cores to use for parallel runs. WARNING! This should be at least 1 less than total cores
+                N_cores=3,#Number of cores to use for parallel runs. WARNING! This should be at least 1 less than total cores
                 TREES_loc="Model-Code/trees3",#Location of *compiled* TREES model.
                 show_TREES_cout=TRUE#FALSE will hide the trees console readout.
 )
@@ -109,7 +109,7 @@ Run_easyR_TREES(Result_Dest="easyR_TREES/Outputs",
                 Init_Infile="Examples/FP/in_FP_by_blk.txt",
                 param_mod = "Examples/FP/param_mod",
                 covfile="Examples/FP/covfile1",
-                N_cores=6,#Remember to change this for your computer
+                N_cores=3,#Remember to change this for your computer
                 TREES_loc="Model-Code/trees3",
                 show_TREES_cout=TRUE
 )
@@ -206,16 +206,16 @@ Run_easyR_TREES(Result_Dest="easyR_TREES/Outputs",
                 Use_Gamma=TRUE,#T or F use the growth gamma function
                 Itter=c(1:5),#number of iterations for running over the gamma
                 Drivers=c("FP_Drivers_BLK_1",
-                          "FP_Drivers_BLK_2",
-                          "FP_Drivers_BLK_3",
-                          "FP_Drivers_BLK_4",
-                          "FP_Drivers_BLK_5",
-                          "FP_Drivers_BLK_6"),
+                          "FP_Drivers_BLK_2"),
+                          # "FP_Drivers_BLK_3", #commented out to keep it run faster
+                          # "FP_Drivers_BLK_4",
+                          # "FP_Drivers_BLK_5",
+                          # "FP_Drivers_BLK_6"),
                 Driver_loc="Examples/FP",
                 Init_Infile="Examples/FP/in_FP_by_blk.txt",
                 param_mod = "Examples/FP/param_mod",
                 covfile="Examples/FP/covfile1",
-                N_cores=6,#Remember to change this for your computer
+                N_cores=3,#Remember to change this for your computer
                 TREES_loc="Model-Code/trees3",
                 show_TREES_cout=FALSE
 )
@@ -227,11 +227,11 @@ Leaf_Area_Plot(Result_Dest="easyR_TREES/Outputs",
                New_values=c(15),
                Use_Gamma=TRUE,Itter=c(1:5),
                Drivers=c("FP_Drivers_BLK_1",
-                         "FP_Drivers_BLK_2",
-                         "FP_Drivers_BLK_3",
-                         "FP_Drivers_BLK_4",
-                         "FP_Drivers_BLK_5",
-                         "FP_Drivers_BLK_6"),
+                         "FP_Drivers_BLK_2"),
+               # "FP_Drivers_BLK_3",
+               # "FP_Drivers_BLK_4",
+               # "FP_Drivers_BLK_5",
+               # "FP_Drivers_BLK_6"),
                Figure_title="Leaf area dist for low SMB scalar",
                Compare_to=Exp_data,
                Smooth_on=FALSE
